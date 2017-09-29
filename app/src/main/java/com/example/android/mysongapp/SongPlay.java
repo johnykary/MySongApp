@@ -21,9 +21,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class SongPlay extends AppCompatActivity {
     private TextView artist_Text_View;
@@ -36,6 +38,7 @@ public class SongPlay extends AppCompatActivity {
 
     private Intent myAdapterIntent;
     private String URL = ServerURL.getURL() + "/play/";
+
 
 
 
@@ -92,15 +95,9 @@ public class SongPlay extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String[] partsOfSongPath;
-
                 String songPath = myAdapterIntent.getStringExtra("songURL");
-                partsOfSongPath = songPath.split(",");
 
-
-                String URLtoPlay = URL + partsOfSongPath[1] + "/" + partsOfSongPath[2].trim();
-
+                String URLtoPlay = URL + songPath.replaceAll(" ","%20");
 
                 audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 
