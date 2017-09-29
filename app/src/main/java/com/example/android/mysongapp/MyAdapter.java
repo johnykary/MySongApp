@@ -21,7 +21,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<ListItem> listItems;
     private Context context;
 
-//    private String IP = "http://192.168.1.10:7777/song/QueenInnuendo.mp3";
+
 
     public MyAdapter(List<ListItem> listItems, Context context) {
         this.listItems = listItems;
@@ -51,21 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(context, "Clicked" + listItem.getHead(), Toast.LENGTH_SHORT).show();
-//                AudioManager audioManager;
-//                audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-//
-//                MediaPlayer mediaPlayer = new MediaPlayer();
-//                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-//
-//                try {
-//                    mediaPlayer.setDataSource(IP);
-//                    mediaPlayer.prepare();
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                mediaPlayer.start();
+
 
                 Intent intent = new Intent(context ,SongPlay.class );
 

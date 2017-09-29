@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText artist_edit_text;
     private EditText song_edit_text;
     MediaPlayer mediaPlayer;
-    private final String IP = "http://192.168.1.8:7777";
+    private final String IP = ServerURL.getURL();
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;

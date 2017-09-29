@@ -35,7 +35,7 @@ public class SongPlay extends AppCompatActivity {
     private Context context;
 
     private Intent myAdapterIntent;
-    private String URL = "http://192.168.1.8:7777/play/";
+    private String URL = ServerURL.getURL() + "/play/";
 
 
 
@@ -106,6 +106,7 @@ public class SongPlay extends AppCompatActivity {
 
                 mediaPlayer = new MediaPlayer();
                 mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
 
 
                 try {
