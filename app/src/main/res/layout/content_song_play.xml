@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.android.mysongapp.SongPlay">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/songRelativeLayout"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/textViewArtist"
+            android:textSize="22dp"
+            android:paddingLeft="15dp"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artist :"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textViewSong"
+            android:textSize="22dp"
+            android:paddingLeft="15dp"
+            android:textStyle="italic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Song :"
+            android:layout_below="@+id/textViewArtist"
+            android:layout_gravity="center"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/songRelativeLayout2"
+        android:gravity="center"
+        android:layout_below="@+id/songRelativeLayout">
+        <Button
+            android:id="@+id/buttonPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play"
+            />
+        <Button
+            android:id="@+id/buttonStop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop"
+
+            android:layout_toRightOf="@+id/buttonPlay"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
