@@ -5,25 +5,29 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <LinearLayout
             android:id="@+id/linearLayout"
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="75sp"
+            android:background="@drawable/footer_lodyas">
 
             <TextView
                 android:id="@+id/textArtist"
                 android:text="Heading"
-                android:textSize="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/ColorBackground"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
             <TextView
                 android:id="@+id/textSongName"
                 android:text="Description"
-                android:textSize="20dp"
+                android:textColor="@color/ColorBackground"
+                android:textSize="20sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

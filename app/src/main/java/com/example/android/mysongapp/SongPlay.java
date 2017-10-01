@@ -1,5 +1,6 @@
 package com.example.android.mysongapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -83,7 +85,7 @@ public class SongPlay extends AppCompatActivity {
                     mediaPlayer.stop();
 
 //                    mediaPlayer.release();
-//                    mediaPlayer = null;
+                    mediaPlayer = null;
 
                 }
 
@@ -95,34 +97,36 @@ public class SongPlay extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String songPath = myAdapterIntent.getStringExtra("songURL");
-
-                String URLtoPlay = URL + songPath.replaceAll(" ","%20");
-
-                audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-
-                mediaPlayer = new MediaPlayer();
-                mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
 
+                if(mediaPlayer == null){
+                    String songPath = myAdapterIntent.getStringExtra("songURL");
 
-                try {
-                    mediaPlayer.reset();
-                    mediaPlayer.setDataSource(URLtoPlay);
-                    mediaPlayer.prepare();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    String URLtoPlay = URL + songPath.replaceAll(" ", "%20");
+
+                    audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+
+                    mediaPlayer = new MediaPlayer();
+
+                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    try {
+                        mediaPlayer.reset();
+                        mediaPlayer.setDataSource(URLtoPlay);
+                        mediaPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    mediaPlayer.start();
+
+
                 }
-
-                mediaPlayer.start();
+                else{
+                    return;
+                }
             }
         };
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mediaPlayer.stop();
-    }
+
 
 }

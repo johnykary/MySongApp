@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MySongApp</string>
-    <string name="title_activity_song_play">SongPlay</string>
+    <string name="title_activity_song_play">Song Play</string>
 </resources>
