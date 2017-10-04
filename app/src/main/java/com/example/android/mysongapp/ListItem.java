@@ -9,12 +9,16 @@ public class ListItem {
     private String artist;
     private String songname;
     private String songURL;
+    private String albumname;
 
-    public ListItem(String head, String description, String songURL) {
-        this.artist = head;
-        this.songname = description;
+    public ListItem(String artist, String albumname, String songname, String songURL) {
+        this.artist = artist;
+        this.albumname = albumname;
+        this.songname = songname;
         this.songURL = songURL;
     }
+
+    public String getAlbumname() { return albumname; }
 
     public String getArtist() {
         return artist;

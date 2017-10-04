@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
                 httpConn = (HttpURLConnection) url.openConnection();
                 httpConn.setRequestMethod(requestMethod);
                 httpConn.setConnectTimeout(7000);
-//                httpConn.connect();
 
                 int HttpResult = httpConn.getResponseCode();
                 if(HttpResult == HttpURLConnection.HTTP_OK){
@@ -126,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject n = array.getJSONObject(i);
                         ListItem item = new ListItem(
                                 n.getString("artistname"),
+                                n.getString("albumname"),
                                 n.getString("songname"),
                                 n.getString("songpath")
                         );

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     tools:context="com.example.android.mysongapp.SongPlay"
-    android:background="@drawable/footer_lodyas">
+    android:background="@drawable/concrete_texture">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +25,18 @@
             android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/textViewAlbum"
+            android:textSize="22sp"
+            android:paddingLeft="15dp"
+            android:textStyle="italic"
+            android:textColor="@color/ColorBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Album :"
+            android:layout_below="@+id/textViewArtist"
+            android:layout_gravity="center"/>
+
+        <TextView
             android:id="@+id/textViewSong"
             android:textSize="22sp"
             android:paddingLeft="15dp"
@@ -33,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Song :"
-            android:layout_below="@+id/textViewArtist"
+            android:layout_below="@+id/textViewAlbum"
             android:layout_gravity="center"/>
     </RelativeLayout>
 

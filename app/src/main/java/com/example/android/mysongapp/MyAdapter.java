@@ -48,6 +48,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         holder.textSongName.setText(listItem.getSongname());
 
+        holder.textAlbumName.setText(listItem.getAlbumname());
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +58,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 Intent intent = new Intent(context ,SongPlay.class );
 
                 intent.putExtra("artistName" , listItem.getArtist());
+                intent.putExtra("albumName", listItem.getAlbumname());
                 intent.putExtra("songName", listItem.getSongname());
                 intent.putExtra("songURL", listItem.getSongURL());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -74,6 +77,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         public TextView textArtist;
         public TextView textSongName;
+        public TextView textAlbumName;
         public LinearLayout linearLayout;
         private final Context context;
         public ViewHolder(View itemView) {
@@ -81,6 +85,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             context = itemView.getContext();
             textArtist = (TextView) itemView.findViewById(R.id.textArtist);
             textSongName = (TextView) itemView.findViewById(R.id.textSongName);
+            textAlbumName = (TextView) itemView.findViewById(R.id.textAlbum);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
 
         }

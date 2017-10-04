@@ -32,6 +32,7 @@ import java.net.URLEncoder;
 public class SongPlay extends AppCompatActivity {
     private TextView artist_Text_View;
     private TextView song_Text_View;
+    private TextView album_Text_View;
     private Button playButton;
     private Button stopButton;
     private AudioManager audioManager;
@@ -58,13 +59,18 @@ public class SongPlay extends AppCompatActivity {
 
 
         artist_Text_View = (TextView) findViewById(R.id.textViewArtist);
+        album_Text_View = (TextView) findViewById(R.id.textViewAlbum);
         song_Text_View = (TextView) findViewById(R.id.textViewSong);
+
 
         myAdapterIntent = getIntent();
         String artistName = myAdapterIntent.getStringExtra("artistName");
+        String albumName = myAdapterIntent.getStringExtra("albumName");
         String songName = myAdapterIntent.getStringExtra("songName");
 
+
         artist_Text_View.setText("Artist :" + " " + artistName);
+        album_Text_View.setText("Album :" + "" + albumName);
         song_Text_View.setText("Song  :" + " " + songName);
 
         playButton = (Button) findViewById(R.id.buttonPlay);
@@ -127,6 +133,20 @@ public class SongPlay extends AppCompatActivity {
         };
     }
 
+    @Override
+    public void onBackPressed() {
 
 
+        mediaPlayer.stop();
+        mediaPlayer = null;
+
+        finish();
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
+    }
 }

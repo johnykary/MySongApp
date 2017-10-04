@@ -13,8 +13,8 @@
             android:padding="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="75sp"
-            android:background="@drawable/footer_lodyas">
+            android:layout_height="98sp"
+            android:background="@drawable/concrete_texture">
 
             <TextView
                 android:id="@+id/textArtist"
@@ -23,6 +23,15 @@
                 android:textColor="@color/ColorBackground"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textAlbum"
+                android:text="Album"
+                android:textSize="20sp"
+                android:textColor="@color/ColorBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:id="@+id/textSongName"
                 android:text="Description"
