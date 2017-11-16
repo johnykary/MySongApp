@@ -5,7 +5,7 @@ package com.example.android.mysongapp;
  */
 
 public class ServerURL {
-    private static String URL = "http://c5651aba.ngrok.io";
+    private static String URL = "http://192.168.1.13:7777";
 
     public ServerURL(String URL ) {
         this.URL = URL;

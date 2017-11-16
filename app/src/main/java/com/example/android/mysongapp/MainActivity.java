@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private List<ListItem> listItems;
     private String jsonin;
 
-    private ProgressDialog progressDialog;
+    ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        mProgressBar = findViewById(R.id.progress_bar);
 
         listItems = new ArrayList<>();
 
@@ -73,6 +77,12 @@ public class MainActivity extends AppCompatActivity {
         public ThreadedConnection(String request, String requestMethod) {
             this.request = request;
             this.requestMethod = requestMethod;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressBar.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -115,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Object o) {
+            mProgressBar.setVisibility(View.INVISIBLE);
             if (request == "/") {
                 JSONObject jsonReceived;
                 try {
